@@ -123,6 +123,7 @@
     <string name="add_look_from_gallery">Von Galerie</string>
     <string name="add_look_from_camera">Von Kamera</string>
     <string name="select_look_from_gallery">Bild auswählen</string>
+    <string name="download_image_in_progress">Lade Bild herunter&#8230;</string>
     <string name="select_look_from_camera">Photo auswählen</string>
     <string name="look_measure">Abmessung:</string>
     <!--  -->
