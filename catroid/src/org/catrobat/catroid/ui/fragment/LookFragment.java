@@ -50,10 +50,12 @@ import org.catrobat.catroid.utils.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -73,6 +75,7 @@ import android.support.v4.content.Loader;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -336,7 +339,7 @@ public class LookFragment extends ScriptActivityFragment implements OnLookEditLi
 
 			try {
 				originalImagePath = cursor.getString(columnIndex);
-			} catch (CursorIndexOutOfBoundsException e) {
+			} catch (CursorIndexOutOfBoundsException cursorIndexOutOfBoundsException) {
 				catchedExpetion = true;
 			}
 		}
@@ -348,32 +351,64 @@ public class LookFragment extends ScriptActivityFragment implements OnLookEditLi
 		copyImageToCatroid(originalImagePath);
 	}
 
-	private void copyPicasaImageToCatroid(CursorLoader cursorLoader, String filename) {
-		Uri imageUri = cursorLoader.getUri();
-		InputStream inputStream;
-		System.out.println();
-		try {
-			inputStream = getActivity().getContentResolver().openInputStream(imageUri);
-			BitmapDrawable bitmapDrawable = new BitmapDrawable(getActivity().getResources(), inputStream);
-			Bitmap bitmap = bitmapDrawable.getBitmap();
+	private void copyPicasaImageToCatroid(final CursorLoader cursorLoader, final String filename) {
+		final int LOADING_IMAGE_CANCELLED = 404;
+		final InputStream inputStream = getPicasaInputStream(cursorLoader.getUri());
+		if (inputStream == null) {
+			Utils.showErrorDialog(getActivity(), getString(R.string.error_load_image));
+			return;
+		}
 
-			if (bitmap != null) {
-				String currentProjectName = ProjectManager.getInstance().getCurrentProject().getName();
-				File imageDirectory = new File(Utils.buildPath(Utils.buildProjectPath(currentProjectName),
-						Constants.IMAGE_DIRECTORY));
-				File cacheFile = new File(imageDirectory, filename);
-				try {
-					StorageHandler.saveBitmapToImageFile(cacheFile, bitmap);
-					copyImageToCatroid(cacheFile.getAbsolutePath());
-				} catch (FileNotFoundException fileNotFoundException) {
-					Utils.showErrorDialog(getActivity(), getString(R.string.error_load_image));
-				}
-				cacheFile.delete();
-			} else {
-				throw new FileNotFoundException("Couldn't resolve picasa uri.");
+		final ProgressDialog progressDialog = ProgressDialog.show(getActivity(), null,
+				getString(R.string.download_image_in_progress), false, true, new OnCancelListener() {
+					@Override
+					public void onCancel(DialogInterface dialog) {
+						try {
+							((ProgressDialog) dialog).setMax(LOADING_IMAGE_CANCELLED);
+							inputStream.close();
+						} catch (IOException ioException) {
+						}
+					}
+				});
+
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				BitmapDrawable bitmapDrawable = new BitmapDrawable(getActivity().getResources(), inputStream);
+				final Bitmap bitmap = bitmapDrawable.getBitmap();
+
+				getActivity().runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						if (bitmap != null) {
+							String currentProjectName = ProjectManager.getInstance().getCurrentProject().getName();
+							File imageDirectory = new File(Utils.buildPath(Utils.buildProjectPath(currentProjectName),
+									Constants.IMAGE_DIRECTORY));
+							final File cacheFile = new File(imageDirectory, filename);
+							try {
+								StorageHandler.saveBitmapToImageFile(cacheFile, bitmap);
+								copyImageToCatroid(cacheFile.getAbsolutePath());
+							} catch (FileNotFoundException fileNotFoundException) {
+								Utils.showErrorDialog(getActivity(), getString(R.string.error_load_image));
+							} finally {
+								cacheFile.delete();
+							}
+						} else if (progressDialog.getMax() != LOADING_IMAGE_CANCELLED) {
+							Utils.showErrorDialog(getActivity(), getString(R.string.error_load_image_from_picasa));
+						}
+						progressDialog.dismiss();
+					}
+				});
 			}
+		}).start();
+	}
+
+	private InputStream getPicasaInputStream(Uri picasaImageUri) {
+		try {
+			return getActivity().getContentResolver().openInputStream(picasaImageUri);
 		} catch (FileNotFoundException fileNotFoundException) {
-			Utils.showErrorDialog(getActivity(), getString(R.string.error_load_image_from_picasa));
+			Log.e(LookFragment.TAG, "BAD URI: cannot find picasa image");
+			return null;
 		}
 	}
 

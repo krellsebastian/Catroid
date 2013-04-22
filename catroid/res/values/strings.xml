@@ -119,6 +119,7 @@
     <string name="default_look_name">look</string>
     <string name="delete_look_dialog">Delete look?</string>
     <string name="select_look_from_gallery">Select image</string>
+    <string name="download_image_in_progress">Downloading image&#8230;</string>
     <string name="select_look_from_camera">Select photo</string>
     <string name="look_measure">Measure:</string>
 
