@@ -41,14 +41,13 @@ public final class Constants {
 
 	public static final String NO_MEDIA_FILE = ".nomedia";
 
-	public static final int SELECT_NONE = 0;
-	public static final int SINGLE_SELECT = 1;
-	public static final int MULTI_SELECT = 2;
-
 	public static final int NO_POSITION = -1;
 
 	//Web:
 	public static final String TOKEN = "token";
+	public static final String NO_TOKEN = "no_token";
+	public static final String USERNAME = "username";
+	public static final String NO_USERNAME = "no_username";
 
 	// Paintroid
 	public static final String EXTRA_PICTURE_PATH_PAINTROID = "org.catrobat.extra.PAINTROID_PICTURE_PATH";

@@ -79,11 +79,6 @@ public class IfLogicBeginBrick extends NestingBrick implements OnClickListener {
 		return NO_RESOURCES;
 	}
 
-	@Override
-	public Sprite getSprite() {
-		return this.sprite;
-	}
-
 	public void setElseBrick(IfLogicElseBrick elseBrick) {
 		this.ifElseBrick = elseBrick;
 	}
