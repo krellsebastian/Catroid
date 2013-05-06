@@ -99,6 +99,7 @@ import org.catrobat.catroid.content.bricks.WhenBrick;
 import org.catrobat.catroid.content.bricks.WhenStartedBrick;
 import org.catrobat.catroid.formulaeditor.UserVariable;
 import org.catrobat.catroid.formulaeditor.UserVariablesContainer;
+import org.catrobat.catroid.io.converter.IfBricksConverter;
 import org.catrobat.catroid.ui.fragment.ProjectsListFragment.ProjectData;
 import org.catrobat.catroid.utils.ImageEditing;
 import org.catrobat.catroid.utils.UtilFile;
@@ -128,6 +129,7 @@ public class StorageHandler {
 		xstream.processAnnotations(Project.class);
 		xstream.processAnnotations(XmlHeader.class);
 		xstream.processAnnotations(UserVariablesContainer.class);
+		xstream.registerConverter(new IfBricksConverter());
 		setXstreamAliases();
 
 		if (!Utils.externalStorageAvailable()) {
