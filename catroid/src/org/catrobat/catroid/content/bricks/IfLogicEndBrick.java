@@ -25,10 +25,12 @@ package org.catrobat.catroid.content.bricks;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.content.Script;
 import org.catrobat.catroid.content.Sprite;
+import org.dom4j.Element;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -41,20 +43,21 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
+import com.pmease.commons.xmt.VersionedDocument;
 
 public class IfLogicEndBrick extends NestingBrick implements AllowedAfterDeadEndBrick {
 
 	static final int FOREVER = -1;
 	private static final long serialVersionUID = 1L;
 	private static final String TAG = IfLogicEndBrick.class.getSimpleName();
-	private IfLogicElseBrick ifElseBrick;
-
 	private IfLogicBeginBrick ifBeginBrick;
+	private IfLogicElseBrick ifElseBrick;
 
 	public IfLogicEndBrick(Sprite sprite, IfLogicElseBrick elseBrick, IfLogicBeginBrick beginBrick) {
 		this.sprite = sprite;
-		this.ifElseBrick = elseBrick;
 		this.ifBeginBrick = beginBrick;
+		this.ifElseBrick = elseBrick;
+
 		if (beginBrick != null) {
 			beginBrick.setIfEndBrick(this);
 		}
@@ -193,6 +196,15 @@ public class IfLogicEndBrick extends NestingBrick implements AllowedAfterDeadEnd
 		copyBrick.ifElseBrick = null;
 		copyBrick.sprite = sprite;
 		return copyBrick;
+	}
+
+	// FIXME xmt
+	@SuppressWarnings("unused")
+	private void migrate1(VersionedDocument dom, Stack<Integer> versions) {
+		Element element = dom.getRootElement().element("beginBrick");
+		element.setName("ifBeginBrick");
+		element = dom.getRootElement().element("elseBrick");
+		element.setName("ifElseBrick");
 	}
 
 }

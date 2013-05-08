@@ -109,6 +109,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.util.Log;
 
+import com.pmease.commons.xmt.VersionedDocument;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.reflection.FieldDictionary;
 import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider;
@@ -129,13 +130,18 @@ public class StorageHandler {
 		xstream.processAnnotations(Project.class);
 		xstream.processAnnotations(XmlHeader.class);
 		xstream.processAnnotations(UserVariablesContainer.class);
-		xstream.registerConverter(new IfBricksConverter());
 		setXstreamAliases();
 
 		if (!Utils.externalStorageAvailable()) {
 			throw new IOException("Could not read external storage");
 		}
 		createCatroidRoot();
+
+		// FIXME xstream
+		xstream.registerConverter(new IfBricksConverter());
+
+		// FIXME xmt
+		VersionedDocument.xstream = xstream;
 	}
 
 	private void setXstreamAliases() {
@@ -230,9 +236,24 @@ public class StorageHandler {
 			File projectDirectory = new File(Utils.buildProjectPath(projectName));
 
 			if (projectDirectory.exists() && projectDirectory.isDirectory() && projectDirectory.canWrite()) {
+				// FIXME xstream
 				InputStream projectFileStream = new FileInputStream(Utils.buildPath(projectDirectory.getAbsolutePath(),
 						Constants.PROJECTCODE_NAME));
 				Project returned = (Project) xstream.fromXML(projectFileStream);
+
+				// FIXME xmt
+				//				FileInputStream stream = new FileInputStream(new File(Utils.buildPath(
+				//						projectDirectory.getAbsolutePath(), Constants.PROJECTCODE_NAME)));
+				//				String xml = null;
+				//				try {
+				//					FileChannel fc = stream.getChannel();
+				//					MappedByteBuffer bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+				//					/* Instead of using default, pass in a decoder. */
+				//					xml = Charset.defaultCharset().decode(bb).toString();
+				//				} finally {
+				//					stream.close();
+				//				}
+				//				Project returned = (Project) VersionedDocument.fromXML(xml).toBean();
 				saveLoadLock.unlock();
 				return returned;
 			} else {
@@ -256,7 +277,11 @@ public class StorageHandler {
 		}
 
 		try {
+			// FIXME xstream
 			String projectFile = xstream.toXML(project);
+
+			// FIXME xmt
+			//			String projectFile = VersionedDocument.fromBean(project).toXML();
 
 			String projectDirectoryName = Utils.buildProjectPath(project.getName());
 			File projectDirectory = new File(projectDirectoryName);
@@ -281,7 +306,11 @@ public class StorageHandler {
 
 			BufferedWriter writer = new BufferedWriter(new FileWriter(Utils.buildPath(projectDirectoryName,
 					Constants.PROJECTCODE_NAME)), Constants.BUFFER_8K);
+
+			// FIXME xstream
 			writer.write(XML_HEADER.concat(projectFile));
+
+			writer.write(projectFile);
 			writer.flush();
 			writer.close();
 			saveLoadLock.unlock();

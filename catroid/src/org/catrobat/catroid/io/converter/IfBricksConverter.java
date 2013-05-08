@@ -22,9 +22,10 @@
  */
 package org.catrobat.catroid.io.converter;
 
+import org.catrobat.catroid.content.Sprite;
+import org.catrobat.catroid.content.bricks.IfLogicBeginBrick;
+import org.catrobat.catroid.content.bricks.IfLogicElseBrick;
 import org.catrobat.catroid.content.bricks.IfLogicEndBrick;
-
-import android.util.Log;
 
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
@@ -41,9 +42,6 @@ public class IfBricksConverter implements Converter {
 	@Override
 	public boolean canConvert(Class clazz) {
 		boolean canConvert = IfLogicEndBrick.class == clazz;
-		if (canConvert) {
-			Log.e("blah", "canConvert!!!");
-		}
 
 		return canConvert;
 	}
@@ -56,28 +54,24 @@ public class IfBricksConverter implements Converter {
 	@Override
 	public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
 		reader.moveDown();
-		Log.e("blub",
-				"1. node: " + reader.getNodeName() + "; value: " + reader.getValue() + "; attribute: "
-						+ reader.getAttribute(0));
 
-		//		Sprite sprite = (Sprite) context.convertAnother(IfLogicEndBrick.class, Sprite.class);
+		Sprite sprite = (Sprite) context.convertAnother(IfLogicEndBrick.class, Sprite.class);
 
 		reader.moveUp();
 		reader.moveDown();
 
-		Log.e("blub", "2. node: " + reader.getNodeName() + "; value: " + reader.getValue());
-		//		IfLogicBeginBrick beginBrick = (IfLogicBeginBrick) context.convertAnother(IfLogicEndBrick.class,
-		//				IfLogicBeginBrick.class);
+		IfLogicBeginBrick beginBrick = (IfLogicBeginBrick) context.convertAnother(IfLogicEndBrick.class,
+				IfLogicBeginBrick.class);
 
 		reader.moveUp();
 		reader.moveDown();
 
-		Log.e("blub", "3. node: " + reader.getNodeName() + "; value: " + reader.getValue());
-		//		IfLogicElseBrick elseBrick = (IfLogicElseBrick) context.convertAnother(IfLogicEndBrick.class,
-		//				IfLogicElseBrick.class);
+		IfLogicElseBrick elseBrick = (IfLogicElseBrick) context.convertAnother(IfLogicEndBrick.class,
+				IfLogicElseBrick.class);
 
-		IfLogicEndBrick brick = new IfLogicEndBrick(null, null, null);
-		//		Log.e("blah", "brick: " + brick.getIfBeginBrick() + ", " + brick.getIfElseBrick());
+		reader.moveUp();
+
+		IfLogicEndBrick brick = new IfLogicEndBrick(sprite, elseBrick, beginBrick);
 
 		return brick;
 	}
