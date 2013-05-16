@@ -54,6 +54,9 @@ public class BrickValues {
 	//Constants Control
 	public static final int WAIT = 1000;
 	public static final int REPEAT = 10;
+	public static final Formula IF_LOGIC_CONDITION = new Formula(new FormulaElement(ElementType.OPERATOR,
+			Operators.EQUAL.name(), null, new FormulaElement(ElementType.NUMBER, "1", null), new FormulaElement(
+					ElementType.NUMBER, "1", null)));
 
 	//Constants Lego
 	public static final String LEGO_MOTOR = "A";
@@ -61,7 +64,4 @@ public class BrickValues {
 	public static final int LEGO_SPEED = 100;
 	public static final int LEGO_DURATION = 1;
 	public static final int LEGO_FREQUENCY = 2;
-	public static final Formula IF_LOGIC_CONDITION = new Formula(new FormulaElement(ElementType.OPERATOR,
-			Operators.EQUAL.name(), null, new FormulaElement(ElementType.NUMBER, "1", null), new FormulaElement(
-					ElementType.NUMBER, "1", null)));
 }
