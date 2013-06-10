@@ -25,7 +25,7 @@ package org.catrobat.catroid.uitest.web;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.uitest.util.Reflection;

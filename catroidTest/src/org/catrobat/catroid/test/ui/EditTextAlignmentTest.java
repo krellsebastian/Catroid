@@ -24,7 +24,7 @@ package org.catrobat.catroid.test.ui;
 
 import java.lang.reflect.Field;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 
 import android.content.Context;
 import android.test.AndroidTestCase;

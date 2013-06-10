@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.content.BroadcastScript;
 
 import android.content.Context;

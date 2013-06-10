@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.common.MessageContainer;
 import org.catrobat.catroid.common.ScreenValues;

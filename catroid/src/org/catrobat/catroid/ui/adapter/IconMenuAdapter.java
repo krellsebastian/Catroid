@@ -53,7 +53,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 
 /**
  * Menu-like list adapter with icon.

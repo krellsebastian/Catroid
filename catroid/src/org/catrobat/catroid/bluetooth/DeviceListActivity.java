@@ -62,7 +62,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 
 public class DeviceListActivity extends Activity {
 	public static final String PAIRING = "pairing";

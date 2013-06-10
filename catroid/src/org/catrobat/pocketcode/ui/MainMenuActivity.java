@@ -20,19 +20,23 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.catrobat.catroid.ui;
+package org.catrobat.pocketcode.ui;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.concurrent.locks.Lock;
 
+import org.catrobat.R;
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.stage.PreStageActivity;
 import org.catrobat.catroid.transfers.CheckTokenTask;
 import org.catrobat.catroid.transfers.CheckTokenTask.OnCheckTokenCompleteListener;
 import org.catrobat.catroid.transfers.ProjectDownloadService;
+import org.catrobat.catroid.ui.MyProjectsActivity;
+import org.catrobat.catroid.ui.ProjectActivity;
+import org.catrobat.catroid.ui.SettingsActivity;
+import org.catrobat.catroid.ui.ViewSwitchLock;
 import org.catrobat.catroid.ui.dialogs.AboutDialogFragment;
 import org.catrobat.catroid.ui.dialogs.LoginRegisterDialog;
 import org.catrobat.catroid.ui.dialogs.NewProjectDialog;

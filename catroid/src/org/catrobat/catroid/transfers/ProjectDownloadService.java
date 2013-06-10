@@ -22,10 +22,9 @@
  */
 package org.catrobat.catroid.transfers;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.io.StorageHandler;
-import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.ui.dialogs.OverwriteRenameDialog;
 import org.catrobat.catroid.utils.StatusBarNotificationManager;
 import org.catrobat.catroid.utils.UtilZip;
@@ -33,6 +32,7 @@ import org.catrobat.catroid.utils.Utils;
 import org.catrobat.catroid.web.ConnectionWrapper;
 import org.catrobat.catroid.web.ServerCalls;
 import org.catrobat.catroid.web.WebconnectionException;
+import org.catrobat.pocketcode.ui.MainMenuActivity;
 
 import android.app.IntentService;
 import android.app.Notification;

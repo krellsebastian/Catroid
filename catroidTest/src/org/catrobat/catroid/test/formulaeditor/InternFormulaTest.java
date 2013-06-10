@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.formulaeditor.ExternInternRepresentationMapping;
 import org.catrobat.catroid.formulaeditor.Functions;
 import org.catrobat.catroid.formulaeditor.InternFormula;

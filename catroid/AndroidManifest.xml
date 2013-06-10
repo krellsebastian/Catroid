@@ -22,7 +22,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.catrobat.catroid"
+    package="org.catrobat"
     android:installLocation="auto"
     android:versionCode="2147483646"
     android:versionName="0.7.3beta"
@@ -57,7 +57,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name=".ui.MainMenuActivity"
+            android:name=".pocketcode.ui.MainMenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catroid" >
             <intent-filter>
@@ -102,44 +102,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".stage.StageActivity"
+            android:name=".catroid.stage.StageActivity"
             android:configChanges="orientation"
             android:label="@string/stage"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
         <activity
-            android:name=".stage.PreStageActivity"
+            android:name=".catroid.stage.PreStageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.ProjectActivity"
+            android:name=".catroid.ui.ProjectActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catroid"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.ProgramMenuActivity"
+            android:name=".catroid.ui.ProgramMenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catroid" />
         <activity
-            android:name=".ui.ScriptActivity"
+            android:name=".catroid.ui.ScriptActivity"
             android:theme="@style/Theme.Catroid"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.MyProjectsActivity"
+            android:name=".catroid.ui.MyProjectsActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catroid"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.SettingsActivity"
+            android:name=".catroid.ui.SettingsActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catroid" />
         <activity
-            android:name=".bluetooth.DeviceListActivity"
+            android:name=".catroid.bluetooth.DeviceListActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".soundrecorder.SoundRecorderActivity"
+            android:name=".catroid.soundrecorder.SoundRecorderActivity"
             android:exported="false"
             android:label="@string/soundrecorder_name"
             android:screenOrientation="portrait"
@@ -153,8 +153,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".transfers.ProjectUploadService" />
-        <service android:name=".transfers.ProjectDownloadService" />
+        <service android:name=".catroid.transfers.ProjectUploadService" />
+        <service android:name=".catroid.transfers.ProjectDownloadService" />
     </application>
 
 </manifest>

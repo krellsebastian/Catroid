@@ -23,7 +23,7 @@
 package org.catrobat.catroid.uitest.stage;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.content.BroadcastScript;
 import org.catrobat.catroid.content.Script;
 import org.catrobat.catroid.content.Sprite;

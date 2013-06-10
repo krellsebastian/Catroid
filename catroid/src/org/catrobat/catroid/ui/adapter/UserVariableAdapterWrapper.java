@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.ui.adapter;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.formulaeditor.UserVariable;
 
 import android.content.Context;

@@ -25,11 +25,11 @@ package org.catrobat.catroid.utils;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.common.Constants;
-import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.ui.MyProjectsActivity;
 import org.catrobat.catroid.ui.dialogs.OverwriteRenameDialog;
+import org.catrobat.pocketcode.ui.MainMenuActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

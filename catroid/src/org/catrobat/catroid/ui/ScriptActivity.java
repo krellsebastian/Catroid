@@ -24,8 +24,8 @@ package org.catrobat.catroid.ui;
 
 import java.util.concurrent.locks.Lock;
 
+import org.catrobat.R;
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.catroid.R;
 import org.catrobat.catroid.formulaeditor.SensorHandler;
 import org.catrobat.catroid.stage.PreStageActivity;
 import org.catrobat.catroid.stage.StageActivity;
@@ -282,7 +282,7 @@ public class ScriptActivity extends SherlockFragmentActivity {
 
 		switch (item.getItemId()) {
 			case android.R.id.home:
-				Intent mainMenuIntent = new Intent(this, MainMenuActivity.class);
+				Intent mainMenuIntent = new Intent(this, org.catrobat.pocketcode.ui.MainMenuActivity.class);
 				mainMenuIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(mainMenuIntent);
 				break;

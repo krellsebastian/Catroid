@@ -23,7 +23,7 @@
 package org.catrobat.catroid.ui.dialogs;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 
 import android.os.Bundle;
 

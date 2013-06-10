@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import org.catrobat.catroid.R;
+import org.catrobat.R;
 import org.catrobat.catroid.formulaeditor.UserVariable;
 
 import android.content.Context;
