@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.LookData;
 import org.catrobat.catroid.common.SoundInfo;
 import org.catrobat.catroid.common.StandardProjectHandler;

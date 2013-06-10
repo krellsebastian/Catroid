@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.ui.fragment;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 import android.app.Dialog;
 import android.content.Context;

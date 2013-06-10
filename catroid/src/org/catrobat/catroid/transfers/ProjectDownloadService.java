@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.transfers;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.io.StorageHandler;
 import org.catrobat.catroid.ui.dialogs.OverwriteRenameDialog;

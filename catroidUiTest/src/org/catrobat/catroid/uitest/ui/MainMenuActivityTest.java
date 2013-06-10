@@ -26,7 +26,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.common.StandardProjectHandler;
 import org.catrobat.catroid.content.Project;

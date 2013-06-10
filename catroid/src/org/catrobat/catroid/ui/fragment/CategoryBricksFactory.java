@@ -25,7 +25,7 @@ package org.catrobat.catroid.ui.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.ProjectManager;
 import org.catrobat.catroid.common.BrickValues;
 import org.catrobat.catroid.content.BroadcastScript;

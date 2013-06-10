@@ -35,7 +35,7 @@ import org.catrobat.catroid.uitest.util.UiTestUtils;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ListView;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 import com.jayway.android.robotium.solo.Solo;
 

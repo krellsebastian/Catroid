@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.content.bricks;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.content.Sprite;
 
 import android.content.Context;

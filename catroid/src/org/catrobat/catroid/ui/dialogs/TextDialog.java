@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.ui.dialogs;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

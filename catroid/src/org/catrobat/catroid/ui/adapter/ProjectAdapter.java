@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.io.ProjectScreenshotLoader;
 import org.catrobat.catroid.ui.fragment.ProjectsListFragment.ProjectData;
 import org.catrobat.catroid.utils.UtilFile;

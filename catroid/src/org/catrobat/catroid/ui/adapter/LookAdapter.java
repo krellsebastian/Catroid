@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.LookData;
 import org.catrobat.catroid.utils.UtilFile;
 

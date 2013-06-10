@@ -24,7 +24,7 @@ package org.catrobat.catroid.content.bricks;
 
 import java.util.List;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.MessageContainer;
 import org.catrobat.catroid.content.BroadcastScript;
 import org.catrobat.catroid.content.Script;

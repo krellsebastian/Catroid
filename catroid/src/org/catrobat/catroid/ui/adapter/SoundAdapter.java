@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.common.SoundInfo;
 import org.catrobat.catroid.utils.UtilFile;

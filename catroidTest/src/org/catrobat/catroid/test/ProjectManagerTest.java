@@ -23,7 +23,7 @@
 package org.catrobat.catroid.test;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.content.Project;
 import org.catrobat.catroid.test.utils.Reflection;

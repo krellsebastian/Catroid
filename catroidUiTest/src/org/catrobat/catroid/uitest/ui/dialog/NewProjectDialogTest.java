@@ -23,7 +23,7 @@
 package org.catrobat.catroid.uitest.ui.dialog;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.ui.ProjectActivity;
 import org.catrobat.catroid.uitest.util.UiTestUtils;

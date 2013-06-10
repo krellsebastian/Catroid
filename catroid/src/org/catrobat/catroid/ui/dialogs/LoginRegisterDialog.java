@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.ui.dialogs;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.transfers.RegistrationTask;
 import org.catrobat.catroid.transfers.RegistrationTask.OnRegistrationCompleteListener;
 import org.catrobat.catroid.web.ServerCalls;

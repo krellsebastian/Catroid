@@ -55,7 +55,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.res.Resources;
 import android.os.Handler;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 /**
  * This class is for talking to a LEGO NXT robot via bluetooth.

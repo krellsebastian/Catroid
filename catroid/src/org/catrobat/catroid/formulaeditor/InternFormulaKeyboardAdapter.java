@@ -25,7 +25,7 @@ package org.catrobat.catroid.formulaeditor;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 public class InternFormulaKeyboardAdapter {
 

@@ -25,7 +25,7 @@ package org.catrobat.catroid.utils;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.ui.MyProjectsActivity;
 import org.catrobat.catroid.ui.dialogs.OverwriteRenameDialog;

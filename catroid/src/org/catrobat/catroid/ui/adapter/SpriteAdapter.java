@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.catroid.common.LookData;
 import org.catrobat.catroid.content.Sprite;
 

@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.ui;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 import org.catrobat.pocketcode.ui.MainMenuActivity;
 
 import android.content.Intent;

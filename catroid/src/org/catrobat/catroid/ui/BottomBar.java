@@ -22,7 +22,7 @@
  */
 package org.catrobat.catroid.ui;
 
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 import android.app.Activity;
 import android.view.View;

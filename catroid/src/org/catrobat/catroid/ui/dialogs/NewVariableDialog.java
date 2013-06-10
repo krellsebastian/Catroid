@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.catrobat.catroid.ProjectManager;
-import org.catrobat.R;
+import org.catrobat.pocketcode.R;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
