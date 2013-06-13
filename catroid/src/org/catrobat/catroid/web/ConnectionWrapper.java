@@ -50,11 +50,6 @@ public class ConnectionWrapper {
 	public static final int FILE_TYPE = org.apache.commons.net.ftp.FTP.BINARY_FILE_TYPE;
 	public static final String FTP_ENCODING = "UTF-8";
 
-	public static final String TAG_PROGRESS = "currentDownloadProgress";
-	public static final String TAG_ENDOFFILE = "endOfFileReached";
-	public static final String TAG_UNKNOWN = "unknown";
-	public static final String TAG_NOTIFICATION_ID = "notificationId";
-	public static final String TAG_PROJECT_NAME = "projectName";
 	public static final String TAG_PROJECT_TITLE = "projectTitle";
 
 	private FTPClient ftpClient = new FTPClient();

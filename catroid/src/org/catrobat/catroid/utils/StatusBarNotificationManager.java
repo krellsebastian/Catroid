@@ -164,7 +164,6 @@ public class StatusBarNotificationManager {
 		NotificationManager notificationManager = (NotificationManager) context
 				.getSystemService(Activity.NOTIFICATION_SERVICE);
 		String notificationTitle = context.getString(R.string.notification_download_title);
-		boolean newDownloadNotification = downloadNotificationDataMap.isEmpty();
 
 		Intent intent = new Intent(context, MainMenuActivity.class);
 		intent.setAction(Intent.ACTION_MAIN);

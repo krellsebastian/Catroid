@@ -39,6 +39,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.ResultReceiver;
+import android.util.Log;
 import android.widget.Toast;
 
 public class ProjectDownloadService extends IntentService {
@@ -117,6 +118,8 @@ public class ProjectDownloadService extends IntentService {
 				MainMenuActivity activity = StatusBarNotificationManager.INSTANCE.getActivity(notificationId);
 				OverwriteRenameDialog renameDialog = new OverwriteRenameDialog(activity, projectName, zipFileString);
 				renameDialog.show(activity.getSupportFragmentManager(), OverwriteRenameDialog.DIALOG_FRAGMENT_TAG);
+
+				Log.e("blah", "running? " + activity.getCurrentFocus());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			}
@@ -129,6 +132,14 @@ public class ProjectDownloadService extends IntentService {
 		}
 
 		Toast.makeText(this, R.string.success_project_download, Toast.LENGTH_SHORT).show();
+
+		try {
+			MainMenuActivity activity = StatusBarNotificationManager.INSTANCE.getActivity(notificationId);
+			Log.e("blah", "running? " + activity.getCurrentFocus());
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+
 		super.onDestroy();
 	}
 

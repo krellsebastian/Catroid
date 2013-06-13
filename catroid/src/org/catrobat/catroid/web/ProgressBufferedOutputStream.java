@@ -70,7 +70,7 @@ public class ProgressBufferedOutputStream extends BufferedOutputStream {
 
 		currentFileStatus += len;
 		Log.v(TAG, "download status: " + currentFileStatus + "/" + fileSize);
-		sendUpdateIntent(currentFileStatus / fileSize, false);
+		sendUpdateIntent((100 * currentFileStatus) / fileSize, false);
 	}
 
 	@Override

@@ -40,7 +40,7 @@ import org.catrobat.catroid.ui.dialogs.UploadProjectDialog;
 import org.catrobat.catroid.utils.StatusBarNotificationManager;
 import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
-import org.catrobat.catroid.web.ConnectionWrapper;
+import org.catrobat.catroid.web.ProgressBufferedOutputStream;
 import org.catrobat.catroid.web.ServerCalls;
 
 import android.content.Intent;
@@ -79,15 +79,15 @@ public class MainMenuActivity extends SherlockFragmentActivity implements OnChec
 		protected void onReceiveResult(int resultCode, Bundle resultData) {
 			super.onReceiveResult(resultCode, resultData);
 			if (resultCode == Constants.UPDATE_DOWNLOAD_PROGRESS) {
-				long progress = resultData.getLong(ConnectionWrapper.TAG_PROGRESS);
-				boolean endOfFileReached = resultData.getBoolean(ConnectionWrapper.TAG_ENDOFFILE);
-				Integer notificationId = resultData.getInt(ConnectionWrapper.TAG_NOTIFICATION_ID);
-				String projectName = resultData.getString(ConnectionWrapper.TAG_PROJECT_NAME);
+				long progress = resultData.getLong(ProgressBufferedOutputStream.TAG_PROGRESS);
+				boolean endOfFileReached = resultData.getBoolean(ProgressBufferedOutputStream.TAG_ENDOFFILE);
+				Integer notificationId = resultData.getInt(ProgressBufferedOutputStream.TAG_NOTIFICATION_ID);
+				String projectName = resultData.getString(ProgressBufferedOutputStream.TAG_PROJECT_NAME);
 				if (endOfFileReached) {
 					progress = 100;
 				}
-				String notificationMessage = "Download " + progress + "% "
-						+ getString(R.string.notification_percent_completed) + ":" + projectName;
+				String notificationMessage = getString(R.string.notification_percent_download) + progress
+						+ getString(R.string.notification_percent_completed) + projectName;
 
 				StatusBarNotificationManager.INSTANCE.updateNotification(notificationId, notificationMessage,
 						Constants.DOWNLOAD_NOTIFICATION, endOfFileReached);
