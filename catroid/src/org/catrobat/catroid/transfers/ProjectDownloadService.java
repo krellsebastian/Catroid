@@ -27,6 +27,7 @@ import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.io.StorageHandler;
 import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.ui.dialogs.OverwriteRenameDialog;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 import org.catrobat.catroid.utils.StatusBarNotificationManager;
 import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
@@ -77,6 +78,8 @@ public class ProjectDownloadService extends IntentService {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
 	}
 
 	@Override

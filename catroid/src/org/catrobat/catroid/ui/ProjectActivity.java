@@ -32,6 +32,7 @@ import org.catrobat.catroid.stage.StageActivity;
 import org.catrobat.catroid.ui.adapter.SpriteAdapter;
 import org.catrobat.catroid.ui.dialogs.NewSpriteDialog;
 import org.catrobat.catroid.ui.fragment.SpritesListFragment;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,6 +54,9 @@ public class ProjectActivity extends SherlockFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
+
 		setContentView(R.layout.activity_project);
 	}
 

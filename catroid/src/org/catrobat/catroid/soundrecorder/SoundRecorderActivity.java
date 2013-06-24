@@ -26,6 +26,7 @@ import java.io.IOException;
 
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.Constants;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 import org.catrobat.catroid.utils.Utils;
 
 import android.app.Activity;
@@ -53,6 +54,8 @@ public class SoundRecorderActivity extends SherlockFragmentActivity implements O
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
 
 		setContentView(R.layout.activity_soundrecorder);
 

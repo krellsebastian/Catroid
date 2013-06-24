@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.Constants;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 import org.catrobat.catroid.utils.UtilDeviceInfo;
 import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
@@ -77,6 +78,8 @@ public class ProjectUploadService extends IntentService {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
 	}
 
 	@Override

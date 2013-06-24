@@ -39,6 +39,7 @@ import org.catrobat.catroid.ui.fragment.LookFragment;
 import org.catrobat.catroid.ui.fragment.ScriptActivityFragment;
 import org.catrobat.catroid.ui.fragment.ScriptFragment;
 import org.catrobat.catroid.ui.fragment.SoundFragment;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 
 import android.content.Intent;
 import android.media.AudioManager;
@@ -109,6 +110,8 @@ public class ScriptActivity extends SherlockFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
 
 		setContentView(R.layout.activity_script);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);

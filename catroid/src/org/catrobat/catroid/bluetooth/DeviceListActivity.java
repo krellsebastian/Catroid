@@ -45,6 +45,9 @@ package org.catrobat.catroid.bluetooth;
 import java.util.ArrayList;
 import java.util.Set;
 
+import org.catrobat.catroid.R;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -62,7 +65,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import org.catrobat.catroid.R;
 
 public class DeviceListActivity extends Activity {
 	public static final String PAIRING = "pairing";
@@ -79,6 +81,9 @@ public class DeviceListActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
+
 		if (autoConnectIDs.size() == 0) {
 
 			autoConnectIDs.add(BtCommunicator.OUI_LEGO);

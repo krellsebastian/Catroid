@@ -34,6 +34,7 @@ import org.catrobat.catroid.bluetooth.BluetoothManager;
 import org.catrobat.catroid.bluetooth.DeviceListActivity;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.content.bricks.Brick;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -67,6 +68,8 @@ public class PreStageActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
 
 		int required_resources = getRequiredRessources();
 		requiredResourceCounter = Integer.bitCount(required_resources);

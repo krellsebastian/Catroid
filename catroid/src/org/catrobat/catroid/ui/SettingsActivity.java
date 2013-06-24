@@ -23,6 +23,7 @@
 package org.catrobat.catroid.ui;
 
 import org.catrobat.catroid.R;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ public class SettingsActivity extends SherlockPreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
 
 		addPreferencesFromResource(R.xml.preferences);
 

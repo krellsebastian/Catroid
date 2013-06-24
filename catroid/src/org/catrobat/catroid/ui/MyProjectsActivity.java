@@ -28,6 +28,7 @@ import org.catrobat.catroid.R;
 import org.catrobat.catroid.ui.adapter.ProjectAdapter;
 import org.catrobat.catroid.ui.dialogs.NewProjectDialog;
 import org.catrobat.catroid.ui.fragment.ProjectsListFragment;
+import org.catrobat.catroid.utils.OutOfMemoryExceptionHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -50,6 +51,9 @@ public class MyProjectsActivity extends SherlockFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Thread.currentThread().setUncaughtExceptionHandler(new OutOfMemoryExceptionHandler());
+
 		setContentView(R.layout.activity_my_projects);
 		setUpActionBar();
 
