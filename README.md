@@ -11,6 +11,8 @@ For more information oriented towards developers including, e.g., downloads of n
 First Steps
 =======
 
+Eclipse
+-------
 The Project is hosted at [GitHub](https://github.com/Catrobat/Catroid).
 
 1. Get the repo via shell: `git clone git@github.com:Catrobat/Catroid.git`
@@ -22,7 +24,7 @@ The Project is hosted at [GitHub](https://github.com/Catrobat/Catroid).
 7. Also take care that a Project Build Target is chosen (Project > Properties > Android > choose any Build Target of your choice > OK)
 
 Warning
----------
+-------
  
 egit (Eclipse extension for git) will ignore some git settings and will make trouble with line endings!
 
